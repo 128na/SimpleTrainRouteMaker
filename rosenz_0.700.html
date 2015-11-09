@@ -4,8 +4,15 @@
 <meta charset="utf-8">
 <meta name="description" content="JavaScriptライブラリjQueryで動作する簡易路線図作成アプリです。" />
 <!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
+  ga('create', 'UA-26911067-2', 'auto');
+  ga('send', 'pageview');
+</script>
 <!-- GA -->
 
 <style type="text/css">
@@ -1113,6 +1120,7 @@ $().ready(function() {
 	<h3 class="makimaki">JavaScriptライブラリjQueryで動作する簡易路線図作成アプリです。</h3>
 	<nav id="grobal-menu"><ul>
 		<li class="zunko"></li>
+		<li class="menu"><a href="https://github.com/128na/SimpleTrainRouteMaker/">ソースコード<a></li>
 		<li class="menu"><a href="http://simutrans128.blog26.fc2.com/">Blog<a></li>
 		<li class="menu"><a href="https://twitter.com/128Na">Twitter</a></li>
 		<li class="menu"><a id="show-changelog" href="javascript:void(0);">更新履歴</a></li>
