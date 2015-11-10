@@ -365,6 +365,7 @@ var MapEditor = function(o) {
 	MapEditor.prototype.importModel = function() {
 		var model = jQo2Obj( this.$model );
 		this.loadModel( model );
+		this.renderCanvas();
 	};
 	MapEditor.prototype.exportModel = function() {
 		var model = {
