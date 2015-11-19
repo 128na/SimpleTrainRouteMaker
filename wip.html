@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="description" content="JavaScriptライブラリjQueryで動作する簡易路線図作成アプリです。" />
+<meta name="description" content="JavaScriptライブラリjQueryで動作する簡易路線図作成アプリです。">
 <!-- analytics -->
 
 
@@ -11,16 +11,17 @@
 <script src="depend-js/jquery-ui.min.js"></script>
 <script src="depend-js/jcanvas.min.js"></script>
 <script src="depend-js/evol.colorpicker.min.js"></script>
-<link rel="stylesheet" href="depend-css/evol.colorpicker.min.css" type="text/css" />
+<link rel="stylesheet" href="depend-css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="depend-css/evol.colorpicker.min.css" type="text/css">
 
 <!-- core -->
 <script src="main.js"></script>
 <script src="samples.js"></script>
-<script src="designs.js"></script>
+<script src="functions.js"></script>
+<script src="handle.js"></script>
 
-<link rel="stylesheet" href="utility.css" type="text/css" />
-<link rel="stylesheet" href="main.css" type="text/css" />
-<link rel="stylesheet" href="designs.css" type="text/css" />
+<link rel="stylesheet" href="utility.css" type="text/css">
+<link rel="stylesheet" href="main.css" type="text/css">
 
 
 <title>簡易路線図メーカー1.000</title>
@@ -28,11 +29,11 @@
 <body>
 <header>
 <div class="content pp">
-	<h1 class="f18">簡易路線図メーカーver0.700</h1>
+	<h1 class="f18">簡易路線図メーカーver1.000</h1>
 	<h3 class="f10">JavaScriptライブラリjQueryで動作する簡易路線図作成アプリです。</h3>
 </div>
 <div class="content">
-	<nav class="menu f09">
+	<nav class="menu f095">
 		<ul>
 			<li class="list"><div class="p" id="menu-setting">設定</div></li>
 			<li class="list"><div class="p" id="menu-stations">駅情報</div></li>
@@ -58,8 +59,10 @@
 </header>
 <section>
 
-<div class="content" id="canvas">
-	<canvas id="main"></canvas>
+<div class="world">
+	<div class="content">
+		<canvas id="canvas"></canvas>
+	</div>
 </div>
 </section>
 <footer>

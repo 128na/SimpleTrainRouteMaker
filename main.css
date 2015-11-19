@@ -13,7 +13,10 @@ body{
 	flex-direction : column;
 	height: 100%;
 }
-
+/*
+yellow
+E3B144
+*/
 
 /*------ header layout ------*/
 header{
@@ -60,15 +63,23 @@ section{
 	flex : 1;
 	display: flex;
 	flex-direction : column;
+	overflow: scroll;
 }
 section .action{
 }
-section .content{
+section .world{
+	width: 100%;
 	height: 100%;
+	background-color: #f0f0f0;
 	position: relative;
 	flex : 1;
+	display: flex;
 }
-
+section .content{
+	margin : auto;
+	border : solid 1px #000;
+	background-color: #fff;
+}
 section canvas{
 	width : 100%;
 	height : 100%;

@@ -1,4 +1,5 @@
 /*------ utility ------*/
+/*		action			*/
 .show, .hide{
   transition: 1.5s ease-in-out;
 }
@@ -15,22 +16,28 @@
   margin-top: 0;
 }
 
-.vp{ padding-top: 5px; padding-bottom: 5px; }
-.hp{ padding-left: 5px; padding-right: 5px; }
-.p{ padding: 5px; }
-.vpp{ padding-top: 10px; padding-bottom: 10px; }
-.hpp{ padding-left: 10px; padding-right: 10px; }
-.pp{ padding: 10px; }
+/*		padding			*/
+.vp{	padding-top	: 5px; padding-bottom	: 5px; }
+.hp{	padding-left: 5px; padding-right	: 5px; }
+.p{		padding		: 5px; }
+.vpp{	padding-top	: 10px; padding-bottom	: 10px; }
+.hpp{	padding-left: 10px; padding-right	: 10px; }
+.pp{ 	padding		: 10px; }
 
-.f08{font-size: 0.8rem;}
-.f09{font-size: 0.9rem;}
-.f10{font-size: 1.0rem;}
-.f11{font-size: 1.1rem;}
-.f12{font-size: 1.2rem;}
-.f13{font-size: 1.3rem;}
-.f14{font-size: 1.4rem;}
-.f15{font-size: 1.5rem;}
-.f16{font-size: 1.6rem;}
-.f17{font-size: 1.7rem;}
-.f18{font-size: 1.8rem;}
+
+/*		font size		*/
+.f08{	font-size: 0.8rem; }
+.f085{	font-size: 0.85rem;}
+.f09{	font-size: 0.9rem; }
+.f095{	font-size: 0.95rem;}
+.f10{	font-size: 1.0rem; }
+.f105{	font-size: 1.05rem;}
+.f11{	font-size: 1.1rem; }
+.f12{	font-size: 1.2rem; }
+.f13{	font-size: 1.3rem; }
+.f14{	font-size: 1.4rem; }
+.f15{	font-size: 1.5rem; }
+.f16{	font-size: 1.6rem; }
+.f17{	font-size: 1.7rem; }
+.f18{	font-size: 1.8rem; }
 

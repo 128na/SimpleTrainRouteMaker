@@ -1,59 +1,89 @@
-$().ready(function(){
-
-	$('#menu-setting' ).on('click', function(){ popMenu( $('#pop-setting' ) ); });
-	$('#menu-stations').on('click', function(){ popMenu( $('#pop-stations') ); });
-	$('#menu-trains'  ).on('click', function(){ popMenu( $('#pop-trains'  ) ); });
-	$('#menu-routes'  ).on('click', function(){ popMenu( $('#pop-routes'  ) ); });
+//----------------------------------------------------------------------------//
+var MapEditor = function(o){
+	o = o || {};
 
 
-$(function(){
+	this.canvas		 = o.canvas		 || document.getElementById('canvas');
+	this.context	 = this.canvas.getContext('2d');
+	this.settings	 = new Settings(o.settings);
+	this.designs	 = new Designs (o.designs );
+	this.trains		 = o.trains || [];
+		
+	this.initCanvas();
 
-		//グラフを描画するよ！
-		var graph = function() {
-				var $wrapper = $('#canvas');
-				var $canvas = $('#canvas canvas');
-				
-				//Retina対応
-				var scale = 2.0; //Retinaで2倍
-				var w = $wrapper.width() * scale;
-				var h = $wrapper.height() * scale;
-				$canvas.attr({'width': w, 'height': h});
-				$canvas.width(w/scale); $canvas.height(h/scale);
+	console.log('init',this);
 
-				$canvas.clearCanvas(); //キャンパスをクリア
-				
-				//横に3本線を描きます
-				var bc = '#999999';
-				var bw = 0.5 * scale;
-				var pd = 14.0 * scale;
-				$canvas.drawLine({
-					strokeStyle: bc, strokeWidth: bw,
-						x1: pd, y1: h - pd,
-						x2: w - pd, y2: h - pd,
-				});
-				$canvas.drawLine({
-					strokeStyle: bc, strokeWidth: bw,
-						x1: pd, y1: h / 2,
-						x2: w - pd, y2: h / 2,
-				});
-				$canvas.drawLine({
-					strokeStyle: bc, strokeWidth: bw,
-						x1: pd, y1: pd,
-						x2: w - pd, y2: pd,
-				});
-			};
+	this.renderAll();
+};
 
-		graph(); //実行！
+//----------------------------------------------------------------------------//
+var Settings = function(o){
+	o = o || {};
+	this.grid		 = o.grid		 || 10;
+	this.angle		 = o.angle		 || 90;
+	this.width		 = o.width		 || $(window).width();
+	this.height		 = o.height		 || $(window).height();
+};
+var Designs = function(o){
+	o = o || {};
+	this.route = o.route || [];
+	this.stop  = o.stop  || [];
+	this.label = o.label || [];
+};
 
-});
+//----------------------------------------------------------------------------//
+var Train = function(o){
+	o = o || {};
+	console.log('o:',o);
+	this.routes		 = o.routes		 || [];
+	this.stops		 = o.stops		 || [];
+	this.labels		 = o.labels		 || [];
+};
+//----------------------------------------------------------------------------//
+Train.prototype.Route = function(o){
+	o = o || {};
+	this.id			 = o.id			 || -1;
+	this.design		 = o.design		 || {id:0};
+	this.points		 = o.points		 || [{x:1,y:1},{x:2,y:1}];
+};
+Train.prototype.Stop = function(o){
+	o = o || {};
+	this.id			 = o.id			 || -1;
+	this.design		 = o.design		 || {id:0};
+	this.point		 = o.point		 || {x:1,y:1};
+};
+Train.prototype.Label = function(o){
+	o = o || {};
+	this.id			 = o.id			 || -1;
+	this.name		 = o.name		 || 'ラベル';
+	this.design		 = o.design		 || {id:0};
+	this.points		 = o.points		 || [{x:1,y:1}];
+	this.owner		 = o.owner		 || {type:"routes",id:0};
+};
 
-
-});
-
-function popMenu( $target ){
-	//自分以外は閉じる
-	$target.siblings().addClass('none');
-	//自分はトグる
-	$target.toggleClass('none');
-}
+//----------------------------------------------------------------------------//
+Designs.prototype.Route = function(o){
+	o = o || {};
+	this.id          = o.id			 || -1;
+	this.lineWidth   = o.lineWidth	 || 10;
+	this.lineCap     = o.lineCap	 || "round";	//bevel, round, miter
+	this.lineJoin    = o.lineJoin	 || "round";	//bevel, round, miter
+	this.miterLimit  = o.miterLimit	 || 3.0;
+	this.strokeStyle = o.strokeStyle || 'rgba(255,0,0,0.5)';
+	this.effects	 = o.effects	 || {};
+};
+Designs.prototype.Stop  = function(o){
+	o = o || {};
+	this.id			 = o.id			 || -1;
+	this.width 		 = o.width		 || 1;
+	this.height		 = o.height		 || 1;
+	this.radius		 = o.radius		 || {topLeft:0.1,topRight:0.1,bottomRight:0,bottomLeft:0.1};
+	this.effects	 = o.effects	 || {};
+};
+Designs.prototype.Label = function(o){
+	o = o || {};
+	this.id          = o.id			 || -1;
+	this.font        = "12px 'Times New Roman'"
+	this.effects	 = o.effects	 || {};
+};
 
