@@ -8,6 +8,7 @@ var MapEditor = function(o){
 	this.settings	 = new Settings(o.settings);
 	this.designs	 = new Designs (o.designs );
 	this.trains		 = o.trains || [];
+	this.margin = 20;
 		
 	this.initCanvas();
 
